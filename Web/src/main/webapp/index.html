@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="/WebContent/Stylesheets/stylesheet.css">
+    
+    
+    <title>My Film DB</title>
+    
+    
+</head>
+
+
+  
+  <body>
+  
+   <div class="header">
+  
+  <h1>Film Info - Web Service </h1>
+  
+  
+  </div>
+  
+  <h4>Welcome to Haris' Web Service Assignment - HTTP Interface</h4>
+  
+  
+  <div class="container">
+  
+  
+
+	 <form method="get" action= "./Search">
+			  
+			  <input type="text" name="search" id="search" placeholder="Search...">
+			  	 
+			  <input type = "submit" class="btn btn-secondary btn-sm" value = "Search"> 			  
+			  
+			   <button type="button" class="btn btn-secondary btn-sm" id= "allFilms">Show all movies</button>
+			  
+			  
+			  <br><br>
+			  
+			  
+			  <input type="radio" name="parameter" id="name" value="name" required>
+			  <label>Search by name</label>
+			  <input type="radio" name="parameter" id="id" value="id" required>
+			  <label>Search by id</label> 
+			  
+			  <br>
+						  
+			  <label>Please select preferred Data-format</label>
+			  
+		  	<select name="format" id="format">
+			    <option value="json" id= "json">json</option>
+			    <option value="xml" id="xml">xml</option>
+			    <option value="text" id="text">text</option>
+		    </select>
+		    
+		  
+		    
+	</form>
+		    
+		    <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#myModal">
+    Add Film
+  </button>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Create your own Film!</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+        	
+        	Send data through:
+        	  <input type="radio" name= "format" id="json" value="json">
+			  <label>json</label>
+			  <input type="radio" name= "format" id="xml" value="xml">
+			  <label>xml</label> 
+          
+          <form method="post">
+          
+          	 <label for="fId">Film ID:</label>
+			 <input type="text" id="fId"> <br><br>
+			 
+			 <label for="fTitle">Film Title:</label>
+			 <input type="text" id="fTitle"><br><br>
+			 
+			 <label for="fYear">Film Year:</label>
+			 <input type="text" id="fYear"><br><br>
+			 
+			 <label for="fDirector">Film Director:</label>
+			 <input type="text" id="fDirector"><br><br>
+			 
+			 <label for="fStars">Film Stars:</label>
+			 <input type="text" id="fStars"><br><br>
+			 
+			 <label for="fReview">Film Review:</label>
+			 <input type="text" id="fReview"><br><br>
+			 
+			 <button id="postFilm"> Create a new movie </button>
+          	        
+          </form>            
+          
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <button id="dynamicBtn" class="btn btn-outline-danger"> Dynamic Quick Search </button>
+  
+  		
+  
+	</div>
+	
+	<div class="update">
+	<div class="data-container" id="colourId">
+	
+			<div id="normalData">
+	
+	  			<div class="heading-title">
+	  			<h3 id="filmId"></h3>
+	   			
+	   			<h3>-</h3>
+	   			
+	   			<h3 id="title"></h3>
+	   			
+	  			</div>
+	
+	            <p id="year"></p>
+			    <p id="director"></p>
+			    <p id="stars"></p>
+			    <p id="review"></p>
+		    </div>
+		    
+		    
+		     <div id="rawid">
+	
+  			</div>
+		 
+		 
+		 </div>
+		 
+	<button type = "button" class="btn btn-outline-success" id="rawFormatBtn"> Raw Format</button>
+	<button type = "button" class="btn btn-outline-info" id="cleanBtn"> clean Format</button>
+		 
+		
+  			
+	<button type="button" id="stylebtn2" class="btn btn-outline-danger" data-toggle="modal" data-target="#myModal1">
+    Update Film By Id
+  	</button>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Update film by ID</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+        
+        Send data through:
+        	  <input type="radio" name= "jxFormat" id="json" value="json">
+			  <label>json</label>
+			  <input type="radio" name= "jxFormat" id="xml" value="xml">
+			  <label>xml</label> 
+          
+          <form>
+          
+          	 <label for="fId">Film ID:</label>
+			 <input type="text" id="updateId" readonly="readonly"> <br><br>
+			 
+			 <label for="fTitle">Film Title:</label>
+			 <input type="text" id="updateTitle"><br><br>
+			 
+			 <label for="fYear">Film Year:</label>
+			 <input type="text" id="updateYear"><br><br>
+			 
+			 <label for="fDirector">Film Director:</label>
+			 <input type="text" id="updateDirector"><br><br>
+			 
+			 <label for="fStars">Film Stars:</label>
+			 <input type="text" id="updateStars"><br><br>
+			 
+			 <label for="fReview">Film Review:</label>
+			 <input type="text" id="updateReview"><br><br>
+			 
+			 <button id="updateFilm"> update</button>
+			 <button id="deleteFilm">delete</button>
+          	        
+          </form>            
+          
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+		<br><br><br>
+	
+
+	   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="./WebContent/Scripts/AJAX.js"></script>
+		<script src="./WebContent/Scripts/ReadFilms.js"></script>
+		<script src="./WebContent/Scripts/RawFormat.js"></script>
+		
+		
+		<div class="footer">
+  		
+  		<p>The available CRUD Servlets are:  <a href="post.html">Create Film</a>, <a href="update.html">Update Film</a>, <a href="delete.html">Delete Film</a></p> 
+	
+		</div>
+		
+  </body>
+  
+  	
+	
+</html>

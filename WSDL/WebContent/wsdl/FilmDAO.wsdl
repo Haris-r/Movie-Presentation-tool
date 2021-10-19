@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://model" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://model" xmlns:intf="http://model" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://model" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getAllFilms">
+    <complexType/>
+   </element>
+   <element name="getAllFilmsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getAllFilmsReturn" type="impl:Film"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Film">
+    <sequence>
+     <element name="director" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="review" nillable="true" type="xsd:string"/>
+     <element name="stars" nillable="true" type="xsd:string"/>
+     <element name="title" nillable="true" type="xsd:string"/>
+     <element name="year" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <element name="getFilmByID">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFilmByIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getFilmByIDReturn" type="impl:Film"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFilmByName">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFilmByNameResponse">
+    <complexType>
+     <sequence>
+      <element name="getFilmByNameReturn" type="impl:Film"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="postCreateFilm">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+      <element name="title" type="xsd:string"/>
+      <element name="year" type="xsd:int"/>
+      <element name="director" type="xsd:string"/>
+      <element name="stars" type="xsd:string"/>
+      <element name="review" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="postCreateFilmResponse">
+    <complexType>
+     <sequence>
+      <element name="postCreateFilmReturn" type="impl:Film"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteFilmById">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteFilmByIdResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteFilmByIdReturn" type="impl:Film"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateFilm">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+      <element name="title" type="xsd:string"/>
+      <element name="year" type="xsd:int"/>
+      <element name="director" type="xsd:string"/>
+      <element name="stars" type="xsd:string"/>
+      <element name="review" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateFilmResponse">
+    <complexType>
+     <sequence>
+      <element name="updateFilmReturn" type="impl:Film"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="updateFilmResponse">
+
+      <wsdl:part element="impl:updateFilmResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteFilmByIdRequest">
+
+      <wsdl:part element="impl:deleteFilmById" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="postCreateFilmResponse">
+
+      <wsdl:part element="impl:postCreateFilmResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteFilmByIdResponse">
+
+      <wsdl:part element="impl:deleteFilmByIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllFilmsRequest">
+
+      <wsdl:part element="impl:getAllFilms" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFilmByNameResponse">
+
+      <wsdl:part element="impl:getFilmByNameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFilmByIDRequest">
+
+      <wsdl:part element="impl:getFilmByID" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateFilmRequest">
+
+      <wsdl:part element="impl:updateFilm" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllFilmsResponse">
+
+      <wsdl:part element="impl:getAllFilmsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFilmByNameRequest">
+
+      <wsdl:part element="impl:getFilmByName" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFilmByIDResponse">
+
+      <wsdl:part element="impl:getFilmByIDResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="postCreateFilmRequest">
+
+      <wsdl:part element="impl:postCreateFilm" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="FilmDAO">
+
+      <wsdl:operation name="getAllFilms">
+
+         <wsdl:input message="impl:getAllFilmsRequest" name="getAllFilmsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllFilmsResponse" name="getAllFilmsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFilmByID">
+
+         <wsdl:input message="impl:getFilmByIDRequest" name="getFilmByIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getFilmByIDResponse" name="getFilmByIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFilmByName">
+
+         <wsdl:input message="impl:getFilmByNameRequest" name="getFilmByNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getFilmByNameResponse" name="getFilmByNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="postCreateFilm">
+
+         <wsdl:input message="impl:postCreateFilmRequest" name="postCreateFilmRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:postCreateFilmResponse" name="postCreateFilmResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteFilmById">
+
+         <wsdl:input message="impl:deleteFilmByIdRequest" name="deleteFilmByIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteFilmByIdResponse" name="deleteFilmByIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateFilm">
+
+         <wsdl:input message="impl:updateFilmRequest" name="updateFilmRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateFilmResponse" name="updateFilmResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="FilmDAOSoapBinding" type="impl:FilmDAO">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getAllFilms">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllFilmsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllFilmsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFilmByID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getFilmByIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getFilmByIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFilmByName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getFilmByNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getFilmByNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="postCreateFilm">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="postCreateFilmRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="postCreateFilmResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteFilmById">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteFilmByIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteFilmByIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateFilm">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateFilmRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateFilmResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="FilmDAOService">
+
+      <wsdl:port binding="impl:FilmDAOSoapBinding" name="FilmDAO">
+
+         <wsdlsoap:address location="http://localhost:8080/WSDL/services/FilmDAO"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
